@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ana Petreca | Portfólio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ---- RESET BÁSICO ---- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ---- CORES E FONTES ---- */
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: #fdf8ec;
+      color: #4a3728;
+    }
+
+    /* ---- MENU DE NAVEGAÇÃO ---- */
+    header {
+      background-color: #7a4f35;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 14px 20px;
+    }
+
+    nav a {
+      color: #fdf8ec;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    nav a:hover {
+      background-color: #f5e6a3;
+      color: #4a3728;
+    }
+
+    /* ---- SEÇÕES ---- */
+    section {
+      padding: 60px 20px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* alterna fundo entre seções */
+    .fundo-claro  { background-color: #fdf8ec; }
+    .fundo-escuro { background-color: #f5e6a3; }
+
+    .fundo-escuro section {
+      background-color: transparent;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #7a4f35;
+      margin-bottom: 10px;
+      border-left: 5px solid #f5c842;
+      padding-left: 12px;
+    }
+
+    .subtitulo {
+      color: #9b6a4a;
+      margin-bottom: 32px;
+      font-size: 0.95rem;
+    }
+
+    /* ---- INÍCIO / HOME ---- */
+    .home-box {
+      text-align: center;
+      padding: 60px 20px;
+      background-color: #fdf8ec;
+    }
+
+    .foto-perfil {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      border: 5px solid #7a4f35;
+    }
+
+    .foto-perfil img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+
+    } 
+
+    .home-box h1 {
+      font-size: 2rem;
+      color: #7a4f35;
+      margin-bottom: 8px;
+    }
+
+    .home-box .cargo {
+      font-size: 1rem;
+      color: #9b6a4a;
+      margin-bottom: 16px;
+    }
+
+    .home-box p {
+      max-width: 540px;
+      margin: 0 auto;
+      color: #6b4c35;
+      line-height: 1.7;
+    }
+
+    /* ---- CARDS (formação e cursos) ---- */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border: 2px solid #f5c842;
+      border-radius: 12px;
+      padding: 24px;
+      flex: 1 1 240px;
+    }
+
+    .card .icone {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      color: #7a4f35;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: 0.88rem;
+      color: #9b6a4a;
+      line-height: 1.5;
+    }
+
+    .card .periodo {
+      font-size: 0.78rem;
+      color: #b58a5f;
+      margin-top: 8px;
+      font-weight: 600;
+    }
+
+    /* ---- LINHA DO TEMPO (experiência) ---- */
+    .timeline {
+      border-left: 3px solid #f5c842;
+      padding-left: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.05rem;
+      color: #7a4f35;
+      margin-bottom: 4px;
+    }
+
+    .timeline-item .empresa {
+      font-size: 0.88rem;
+      color: #9b6a4a;
+      margin-bottom: 8px;
+    }
+
+    .timeline-item p {
+      font-size: 0.92rem;
+      color: #6b4c35;
+      line-height: 1.6;
+    }
+
+    /* ---- HABILIDADES (pills) ---- */
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .pill {
+      background-color: #f5c842;
+      color: #4a3728;
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* ---- CONTATO ---- */
+    .contato-links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .contato-links a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background-color: #ffffff;
+      border: 2px solid #f5c842;
+      border-radius: 10px;
+      padding: 14px 20px;
+      text-decoration: none;
+      color: #4a3728;
+      font-weight: 600;
+      font-size: 0.93rem;
+      transition: background 0.2s;
+    }
+
+    .contato-links a:hover {
+      background-color: #f5e6a3;
+    }
+
+    .contato-links a span.icone-link {
+      font-size: 1.3rem;
+    }
+
+    /* formulário */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 500px;
+    }
+
+    form label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #7a4f35;
+      margin-bottom: 4px;
+    }
+
+    form input,
+    form textarea {
+      padding: 12px 14px;
+      border: 2px solid #f5c842;
+      border-radius: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.92rem;
+      background-color: #fffdf3;
+      color: #4a3728;
+      width: 100%;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      outline: none;
+      border-color: #7a4f35;
+    }
+
+    form button {
+      background-color: #7a4f35;
+      color: #fdf8ec;
+      border: none;
+      padding: 13px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    form button:hover {
+      background-color: #5c3820;
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      background-color: #7a4f35;
+      color: #fdf8ec;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.88rem;
+    }
+
+    /* ---- RESPONSIVIDADE ---- */
+    @media (max-width: 600px) {
+      nav a {
+        font-size: 0.82rem;
+        padding: 7px 12px;
+      }
+
+      .home-box h1 {
+        font-size: 1.6rem;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      .cards {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MENU -->
+  <header>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#experiencias">Experiências</a>
+      <a href="#formacao">Formação</a>
+      <a href="#cursos">Cursos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <!-- INÍCIO -->
+  <div class="fundo-claro" id="inicio">
+    <div class="home-box">
+      <div class="foto-perfil"><img src="WhatsApp Image 2026-05-29 at 10.30.30.jpeg"></div>
+      <h1>Ana Petreca</h1>
+      <p class="cargo">Estudante de Desenvolvimento de Software — FATEC</p>
+      <p>
+        Olá! Sou estudante de Tecnologia em Desenvolvimento de Software e Multiplataformas, na fatec de Jaú.
+      </p>
+    </div>
+  </div>
+
+  <!-- EXPERIÊNCIAS -->
+  <div class="fundo-escuro" id="experiencias">
+    <section>
+      <h2>Experiências Profissionais</h2>
+      <p class="subtitulo">Minha trajetória até aqui</p>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <h3>Iniciando na área de Tecnologia</h3>
+          <p class="empresa">Estudante — FATEC</p>
+          <p>
+            Atualmente no 1º semestre do curso de Desenvolvimento de Software e Multiplataformas.
+            Desenvolvendo projetos práticos com HTML, CSS e JavaScript durante o curso.
+          </p>
+        </article>
+
+        <article class="timeline-item">
+          <h3>Informática Básica</h3>
+          <p class="empresa">Conhecimentos gerais</p>
+          <p>
+            Informática básica, conhecimento básico do JavaScript 
+            e aplicativos do dia a dia.
+          </p>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <!-- FORMAÇÃO -->
+  <div class="fundo-claro" id="formacao">
+    <section>
+      <h2>Formação Acadêmica</h2>
+      <p class="subtitulo">Minha educação formal</p>
+
+      <div class="cards">
+        <article class="card">
+        
+          <h3>Tecnologia em Desenvolvimento de Software e Multiplataformas</h3>
+          <p>FATEC — Faculdade de Tecnologia</p>
+          <p class="periodo">2025 — Cursando (1º Semestre)</p>
+        </article>
+
+        <article class="card">
+        
+          <h3>Ensino Médio Completo</h3>
+          <p>Escola de Ensino Médio</p>
+          <p class="periodo">Concluído</p>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <!-- CURSOS -->
+  <div class="fundo-escuro" id="cursos">
+    <section>
+      <h2>Cursos e Certificações</h2>
+      <p class="subtitulo">Aprendizado fora da sala de aula</p>
+
+      <div class="cards">
+        <article class="card">
+          
+          <h3>JavaScript</h3>
+          <p>Alura</p>
+          <p class="periodo">Certificado concluído</p>
+        </article>
+
+        <article class="card">
+         
+          <h3>Inglês</h3>
+          <p>Curso de idiomas</p>
+          <p class="periodo">Em andamento</p>
+        </article>
+
+        <article class="card">
+     
+          <h3>Informática Básica</h3>
+          <p>Curso técnico</p>
+          <p class="periodo">Concluído</p>
+        </article>
+      </div>
+
+      <!-- habilidades -->
+      <h3 style="margin-top: 48px; color: #7a4f35; font-size: 1.1rem;">Habilidades (Hard Skills)</h3>
+      <div class="pills">
+        <span class="pill">HTML5</span>
+        <span class="pill">CSS3</span>
+        <span class="pill">JavaScript</span>
+        <span class="pill">Lógica de Programação</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- CONTATO -->
+  <div class="fundo-claro" id="contato">
+    <section>
+      <h2>Contato</h2>
+      <p class="subtitulo">Me encontre nas redes ou envie uma mensagem</p>
+
+      <div class="contato-links">
+        <a href="https://www.linkedin.com/in/ana-petreca-0434a23a0/" target="_blank" rel="noopener">
+          <span class="icone-link">-</span> LinkedIn — ana Petreca
+        </a>
+        <a href="https://www.instagram.com/jupetrecca/" target="_blank" rel="noopener">
+          <span class="icone-link">-</span> Instagram — @jupetrecca
+        </a>
+        <a href="https://wa.me/5514996052966" target="_blank" rel="noopener">
+          <span class="icone-link">-</span> WhatsApp — (14) 99605-2966
+        </a>
+        <a href="https://github.com/anapetreca" target="_blank" rel="noopener">
+          <span class="icone-link">-</span> Github — AnaJStack
+        </a>
+    </div>
+
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Feito por <strong>Ana Petreca</strong> na aula de Desenvolvimento Web &nbsp;·&nbsp; FATEC DSM &nbsp;·&nbsp; 2026</p>
+  </footer>
+
+  <script>
+    function enviar(e) {
+      e.preventDefault();
+      var btn = e.target.querySelector('button');
+      btn.textContent = '✅ Mensagem enviada!';
+      btn.style.backgroundColor = '#5a8a5f';
+      setTimeout(function() {
+        btn.textContent = 'Enviar mensagem ✉️';
+        btn.style.backgroundColor = '';
+        e.target.reset();
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>
